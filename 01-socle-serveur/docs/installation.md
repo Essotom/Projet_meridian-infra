@@ -49,7 +49,7 @@ Cette procédure permet de reconstruire intégralement le serveur `srv-meridian-
 | Nom d'hôte | `srv-meridian-01` |
 | Domaine | `meridian.lan` |
 | IP d'administration | `192.168.56.10/24` |
-| Compte administrateur | `<login>` |
+| Compte administrateur | `essotom` |
 | Schéma de partitionnement | voir `partitionnement.md` |
 
 ---
@@ -89,8 +89,8 @@ Lien de téléchargement : [Télécharger Debian](https://www.debian.org/downloa
 | vCPU | 2 |
 | RAM | 2048 Mo |
 | Disque | 30 Go |
-| Interface 1 | <type> |
-| Interface 2 | <type> |
+| Interface 1 | enp0s3 |
+| Interface 2 | enp0s8 |
 
 **Provisionnement de la VM**
 
