@@ -1,4 +1,4 @@
-# Projet 01 — Le socle serveur
+# Projet 01 - Le socle serveur
 
 > **Parcours** : Administration système & réseau *Groupe MERIDIAN*
 > **Type de projet** : Projet personnel
