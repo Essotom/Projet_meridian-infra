@@ -8,7 +8,7 @@ L'objectif de ce journal est de documenter toutes les avancées sur ce projet, m
 
 ---
 
-## 25/08/2026 - Date de début du projet
+## 25/08/2026 : Date de début du projet
 
 **Actions réalisées :**
 
