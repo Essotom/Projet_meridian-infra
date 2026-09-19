@@ -141,12 +141,12 @@ Ce serveur va devenir le socle de **toute** l'infrastructure des projets suivant
 
 `docs/recherches.md` (pour les réponses)
 
-1. **PV, VG, LV** - Expliquer les trois niveaux d'abstraction de LVM. Pourquoi isoler `/var` sur son propre volume logique ? Quel incident précis cela évite-t-il ?
-2. **`/boot` hors LVM** - Pourquoi cette règle a longtemps existé, et dans quelles conditions elle ne s'applique plus aujourd'hui. Que fait GRUB au démarrage qui explique cette contrainte ?
-3. **Empreinte de clé SSH** - Lors de notre première connexion, SSH affiche une empreinte et demande confirmation. Que vérifie-t-il exactement ? Que se passe-t-il si on répond « yes » sans vérifier ? Comment obtenir l'empreinte attendue **depuis le serveur, avant** de se connecter ?
-4. **`sudo -i` vs `sudo su -` vs `su -`** - Ces trois commandes semblent équivalentes. Elles ne le sont pas. Quelles différences d'environnement, de journalisation, de mot de passe demandé ?
-5. **Gestion du réseau sous Debian** - `ifupdown`, `systemd-networkd`, `NetworkManager` : lequel une installation serveur Debian utilise-t-elle par défaut ? Comment le vérifier avec certitude sur notre machine ? Que se passe-t-il si deux d'entre eux tournent en même temps ?
-6. **Nommage prédictible des interfaces** - Pourquoi notre interface s'appelle-t-elle `enp0s3` et non `eth0` ? Décomposer le nom morceau par morceau.
+1. **PV, VG, LV** : Expliquer les trois niveaux d'abstraction de LVM. Pourquoi isoler `/var` sur son propre volume logique ? Quel incident précis cela évite-t-il ?
+2. **`/boot` hors LVM** : Pourquoi cette règle a longtemps existé, et dans quelles conditions elle ne s'applique plus aujourd'hui. Que fait GRUB au démarrage qui explique cette contrainte ?
+3. **Empreinte de clé SSH** : Lors de notre première connexion, SSH affiche une empreinte et demande confirmation. Que vérifie-t-il exactement ? Que se passe-t-il si on répond « yes » sans vérifier ? Comment obtenir l'empreinte attendue **depuis le serveur, avant** de se connecter ?
+4. **`sudo -i` vs `sudo su -` vs `su -`** : Ces trois commandes semblent équivalentes. Elles ne le sont pas. Quelles différences d'environnement, de journalisation, de mot de passe demandé ?
+5. **Gestion du réseau sous Debian** : `ifupdown`, `systemd-networkd`, `NetworkManager` : lequel une installation serveur Debian utilise-t-elle par défaut ? Comment le vérifier avec certitude sur notre machine ? Que se passe-t-il si deux d'entre eux tournent en même temps ?
+6. **Nommage prédictible des interfaces** : Pourquoi notre interface s'appelle-t-elle `enp0s3` et non `eth0` ? Décomposer le nom morceau par morceau.
 
 ---
 
