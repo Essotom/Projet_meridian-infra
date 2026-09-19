@@ -4,7 +4,7 @@ Réponses aux 6 zones de recherche imposées par le cahier des charges ([README.
 
 ---
 
-## 1. PV, VG, LV - les trois niveaux d'abstraction de LVM
+## 1. PV, VG, LV : les trois niveaux d'abstraction de LVM
 
 LVM empile trois couches. Le **PV** (physical volume) est un disque ou une partition initialisé pour LVM avec `pvcreate` : c'est la brique physique. Le **VG** (volume group) regroupe un ou plusieurs PV dans un même pot commun d'espace disponible, créé avec `vgcreate` - dans notre cas `vg_system`. Le **LV** (logical volume), enfin, est une « partition virtuelle » découpée dans ce pot avec `lvcreate` : c'est lui qu'on formate et qu'on monte, exactement comme une partition classique.
 
