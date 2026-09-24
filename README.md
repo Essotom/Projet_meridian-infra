@@ -1,6 +1,6 @@
 # meridian-infra
 
-Infrastructure Linux d'une PME fictive, construite progressivement à travers 12 projets d'administration système et réseau. Parcours en cours — chaque projet est spécifié, réalisé et documenté.
+Infrastructure Linux d'une PME fictive, construite progressivement à travers 12 projets d'administration système et réseau. Parcours en cours - chaque projet est spécifié, réalisé et documenté.
 
 **Groupe MERIDIAN** est une PME de transport et logistique imaginaire : 12 salariés au départ, 80 à l'arrivée. Chaque projet répond à un besoin réel de cette croissance, et s'appuie sur l'infrastructure montée dans les précédents. Les décisions prises au projet 01 conditionnent le projet 12.
 
