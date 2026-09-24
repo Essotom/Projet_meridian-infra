@@ -6,7 +6,7 @@
 | **Opérateur**               | Essotom                                 |
 | **Système testé**           | Debian 13.x, noyau 6.12.105+deb13-amd64 |
 | **Version de la procédure** | `installation.md` v1.0                  |
-| **Résultat global**         | Conforme                                |
+| **Résultat global**         | Conforme     |
 
 ---
 
@@ -48,8 +48,13 @@
 
 ![alt text](img/image-32.png)
 
-**Vérification** - options du tableau EX-09 présentes sur chaque point de montage → oui, conforme
+**Vérification** - options `nodev,nosuid,noexec` présentes sur `/tmp`
 
+### Test `noexec` sur `/tmp` *(attendu : échec)*
+
+![alt text](img/image-47.png)
+
+**Verdict** : OK
 
 ---
 
@@ -79,22 +84,23 @@
 
 ### T-01 - Connexion root refusée *(attendu : échec)*
 
-
 ![alt text](img/image-37.png)
 
 **Verdict** : Accès refusé
 
 ### T-02 - Authentification par mot de passe refusée *(attendu : échec)*
 
-![alt text](img/image-38.png)
+Test refait avec le compte `essotom`.
 
-**Verdict** : Accès refusé comme attendu (EX-18)
+![alt text](img/image-48.png)
+
+**Verdict** : OK
 
 ### T-03 - Pas d'écoute sur l'interface NAT *(attendu : échec)*
 
-![alt text](img/image-39.png)
+![alt text](img/image-49.png)
 
-**Verdict** : échec obtenu comme attendu (EX-19)
+**Verdict** : OK
 
 ### T-04 - Connexion par clé *(attendu : succès, sans mot de passe)*
 
@@ -107,6 +113,12 @@
 ![alt text](img/image-41.png)
 
 **Vérification** - écoute limitée à `192.168.56.10:22` → conforme (EX-19)
+
+### `sudo sshd -T`
+
+![alt text](img/image-50.png)
+
+**Vérification** - `permitrootlogin no`, `passwordauthentication no`, `x11forwarding no`, `listenaddress 192.168.56.10` → OK (EX-18, EX-19)
 
 ---
 
@@ -129,9 +141,9 @@
 
 ### `sudo nft list ruleset`
 
-![alt text](img/image-44.png)
+![alt text](img/image-51.png)
 
-**Vérification** - politique `drop` en entrée, loopback autorisé, SSH limité à `192.168.56.0/24`, connexions établies acceptées → conforme (EX-21)
+**Vérification** - table `inet meridian`, politique `drop` en entrée, loopback autorisé, SSH limité à `192.168.56.0/24`, connexions établies acceptées, ICMPv6 `nd-neighbor-solicit`, `nd-neighbor-advert`, `nd-router-advert` acceptés → OK
 
 ### `systemctl is-enabled unattended-upgrades`
 

@@ -12,7 +12,7 @@
 # /boot was on /dev/sda1 during installation
 UUID=4ae992e1-127a-43c1-bbe2-6e1824309757 /boot           ext4    defaults        0       2
 /dev/mapper/vg_system-lv_home /home           ext4    nodev,nosuid    0       2
-/dev/mapper/vg_system-lv_tmp /tmp            ext4    nodev,nosuid    0       2
+/dev/mapper/vg_system-lv_tmp /tmp            ext4    nodev,nosuid,noexec 0       2
 /dev/mapper/vg_system-lv_var /var            ext4    nodev,nosuid    0       2
 /dev/mapper/vg_system-lv_swap none            swap    sw              0       0
 /dev/sr0        /media/cdrom0   udf,iso9660 user,noauto     0       0

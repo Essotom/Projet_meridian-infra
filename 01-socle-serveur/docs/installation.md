@@ -179,7 +179,7 @@ sudo visudo
 puis on rajoute dans le fichier la ligne
 
 ```bash
-Defaults    logfile="/var/log/sudo/log"
+Defaults    logfile="/var/log/sudo.log"
 ```
 et on enregistre
 
@@ -384,41 +384,60 @@ nft --version
 
 #### 2- Configuration des règles nftables
 
+Les règles sont écrites directement dans le fichier `/etc/nftables.conf`, chargé par le service nftables au démarrage. On commence par sauvegarder le fichier d'origine, puis on l'édite.
+
 ```bash
+sudo cp /etc/nftables.conf /etc/nftables.conf.bak
+sudo nano /etc/nftables.conf
+```
 
-# D'abord on crée la table
-sudo nft add table ip meridian
+Contenu du fichier (copie de référence : [conf/nftables.conf](../conf/nftables.conf)) :
 
-# Ensuite on crée les chaînes correspondant aux hooks input et output
+```bash
+#!/usr/sbin/nft -f
 
-sudo nft add chain ip meridian input { type filter hook input priority 0 \; }
+flush ruleset
 
-sudo nft add chain ip meridian output { type filter hook output priority 0 \; }
+table inet meridian {
 
-# Politique par défaut : entrée refusée
-sudo nft chain ip meridian input { policy drop \; }
+    chain input {
+        type filter hook input priority 0;
+        policy drop;
 
-# Pour finir on crée les règles correspondant aux exigences
+        # Autoriser le trafic de bouclage
+        iifname "lo" accept
 
-# Autoriser le trafic sur l'interface de bouclage
-sudo nft add rule ip meridian input iifname "lo" accept
+        # Autoriser les connexions établies et liées
+        ct state established,related accept
 
-sudo nft add rule ip meridian output oifname "lo" accept
+        # Autoriser la découverte de voisins IPv6 (NDP)
+        icmpv6 type { nd-neighbor-solicit, nd-neighbor-advert, nd-router-advert } accept
 
-# Autoriser SSH depuis le réseau 192.168.56.0/24 uniquement
+        # Autoriser SSH uniquement depuis 192.168.56.0/24
+        ip saddr 192.168.56.0/24 tcp dport 22 ct state new accept
+    }
 
-sudo nft add rule ip meridian input ip saddr 192.168.56.0/24 tcp dport 22 accept
+    chain output {
+        type filter hook output priority 0;
+        policy accept;
+    }
+}
+```
 
-#  Autoriser les connexions établies et liées
+On vérifie la syntaxe sans rien appliquer, puis on charge le fichier et on contrôle les règles actives.
 
-sudo nft add rule ip meridian input ct state established,related accept
-
-sudo nft add rule ip meridian output ct state established,related accept
-
-# Validation de la configuration
+```bash
+# Vérification de la syntaxe (aucune règle n'est appliquée)
 sudo nft -c -f /etc/nftables.conf
+
+# Chargement des règles
 sudo nft -f /etc/nftables.conf
 
+# Contrôle des règles actives
+sudo nft list ruleset
+```
+
+```bash
 # Installer et configurer les mises à jour de sécurité automatiques
 sudo apt update
 sudo apt install unattended-upgrades

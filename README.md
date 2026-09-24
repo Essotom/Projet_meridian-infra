@@ -59,4 +59,4 @@ Le **journal de bord** consigne les erreurs et la façon dont elles ont été di
 
 Parcours mené par **Tom Blakime**, élève-ingénieur en réseaux et cybersécurité, dans le cadre d'une montée en compétences vers l'administration système et infrastructure.
 
-[LinkedIn](www.linkedin.com/in/hugues-essotom-blakime)
+[www.linkedin.com/in/hugues-essotom-blakime](https://www.linkedin.com/in/hugues-essotom-blakime)
