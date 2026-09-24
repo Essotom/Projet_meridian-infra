@@ -8,7 +8,7 @@ L'objectif de ce journal est de documenter toutes les avancées sur ce projet, m
 
 ---
 
-## 15/09/2026 : Date de début du projet
+## 25/08/2026 : Date de début du projet
 
 **Actions réalisées :**
 
@@ -24,7 +24,7 @@ L'objectif de ce journal est de documenter toutes les avancées sur ce projet, m
 
 ---
 
-## 18/09/2026
+## 28/08/2026
 
 Le projet a beaucoup avancé aujourd'hui, j'ai appris comment durcir et enregistrer les commandes sudo dans un fichier, et comment éditer sudoers en toute sécurité avec visudo.
 
