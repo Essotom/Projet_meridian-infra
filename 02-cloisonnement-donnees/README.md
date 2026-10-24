@@ -1,7 +1,6 @@
 # Projet 02 - Le cloisonnement des données
 
 > **Parcours** : Administration système & réseau - Fil rouge *Groupe MERIDIAN*
-> **Niveau** : Débutant confirmé
 > **Durée estimée** : 7 à 9 h
 > **Dépend de** : Projet 01 (serveur opérationnel et accessible en SSH)
 > **Statut** : Terminé
