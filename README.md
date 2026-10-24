@@ -36,7 +36,7 @@ NN-nom-du-projet/
 ├── README.md          Cahier des charges et résultat
 ├── JOURNAL.md         Incidents rencontrés et décisions prises
 ├── docs/
-│   ├── installation.md    Procédure reproductible
+│   ├── <procédure>.md     Procédure reproductible (installation.md, mise-en-oeuvre.md...)
 │   ├── validation.md      Procès-verbal de recette
 │   ├── recherches.md      Notions étudiées
 │   └── <spécifique>.md
@@ -49,14 +49,12 @@ Chaque projet est cadré par un **cahier des charges** avant d'être réalisé :
 
 La validation ne repose pas sur « ça marche » mais sur une **recette** : des commandes dont la sortie est consignée et rattachée à une exigence.
 
-Chaque procédure d'installation est **testée par reconstruction** : la machine est détruite et remontée en suivant uniquement la documentation produite.
-
 Le **journal de bord** consigne les erreurs et la façon dont elles ont été diagnostiquées - c'est souvent le document le plus instructif d'un projet.
 
 ---
 
 ## À propos
 
-Parcours mené par **Tom Blakime**, élève-ingénieur en réseaux et cybersécurité, dans le cadre d'une montée en compétences vers l'administration système et infrastructure.
+Parcours mené par **Tom Blakime**, diplômé d'un Master Réseaux & Cybersécurité, dans le cadre d'une montée en compétences vers l'administration système et infrastructure.
 
 [www.linkedin.com/in/hugues-essotom-blakime](https://www.linkedin.com/in/hugues-essotom-blakime)
