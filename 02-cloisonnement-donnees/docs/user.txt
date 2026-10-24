@@ -1,0 +1,13 @@
+philippe.marchand|direction
+sylvie.ferrand|direction
+karim.benali|exploitation
+marc.dubois|exploitation
+marie.dubois|exploitation
+anne-sophie.lefevre-brun|exploitation
+youssef.tahiri|exploitation
+laura.mercier|commercial
+thomas.nguyen|commercial
+ines.vasquez|commercial
+nathalie.roux|comptabilite
+david.ostermann|comptabilite
+ext.comptable|comptabilite

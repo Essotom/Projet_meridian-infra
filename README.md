@@ -13,7 +13,7 @@ Infrastructure Linux d'une PME fictive, construite progressivement à travers 12
 | # | Projet | Compétences | Statut |
 |---|---|---|---|
 | 01 | [Socle serveur](01-socle-serveur/) | Debian, LVM, SSH, nftables, systemd | Terminé |
-| 02 | Utilisateurs, groupes et ACL | Permissions POSIX, ACL, quotas, setgid | Planifié |
+| 02 | [Cloisonnement des données](02-cloisonnement-donnees/) | Comptes et groupes, permissions POSIX, setgid, ACL | Terminé |
 | 03 | Scripts et tâches planifiées | Bash, timers systemd, journalisation | Planifié |
 | 04 | Stockage et partage de fichiers | LVM avancé, Samba, rsync | Planifié |
 | 05 | Services réseau internes | DNS, DHCP, NTP | Planifié |
