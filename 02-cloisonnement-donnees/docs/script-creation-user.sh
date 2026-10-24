@@ -8,6 +8,9 @@ fi
 # Ensuite, dans la boucle while nous lisons le fichier user.txt ligne par ligne en précisant separateur '|' et nous créons les utilisateurs et leurs groupes de service respectifs
 while IFS='|' read -r utilisateur service
 do
+    # On ignore les lignes vides du fichier user.txt
+    [ -z "$utilisateur" ] && continue
+
     echo "Utilisateur : $utilisateur"
     echo "Service : $service"
 

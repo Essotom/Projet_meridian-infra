@@ -63,7 +63,6 @@ Les répertoires personnels sont créés en `700` (valeur par défaut de Debian 
 Limites du script :
 
 - Il ne définit pas de mot de passe. Un compte sans mot de passe ne peut pas se connecter avec un mot de passe ; il faut en définir un avec `sudo passwd <compte>`.
-- Il ne saute pas les lignes vides de `user.txt`. Une ligne vide a créé un groupe parasite `g_` lors des essais (voir `JOURNAL.md`).
 - Il ne vérifie pas qu'il est lancé en root : sans `sudo`, chaque commande échoue et le script affiche une erreur par compte.
 
 ---
