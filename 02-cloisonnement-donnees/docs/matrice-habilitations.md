@@ -79,3 +79,11 @@ Chaque case renvoie à un test de [validation.md](validation.md).
 | Comptabilité `r-x` sur `direction` et `exploitation` | Même ACL que `commercial` (`getfacl`, captures image-11 et image-12) | Conforme |
 | Tous `rwx` sur `commun`, sticky bit | 6.6 : création par un compte, suppression refusée à un autre | Conforme |
 | Direction `rwx` sur `direction`, exploitation `rwx` sur `exploitation` | Même mode et même ACL que `commercial` (6.2) | Configuration identique, non rejouée compte par compte |
+
+## 5. Limites connues
+
+`ext.comptable` est membre de `g_comptabilite`. Il reçoit donc l'ACL de lecture posée pour ce groupe sur `direction`, `exploitation` et `commercial`. Un prestataire externe peut ainsi lire les documents de la direction.
+
+C'est conforme à EX-16 tel qu'il est rédigé : l'exigence donne la lecture aux membres de `g_comptabilite`, sans distinguer la comptabilité interne du prestataire.
+
+Correction possible, non appliquée : placer `ext.comptable` dans un groupe distinct (par exemple `g_compta_ext`) sans ACL sur `direction`, et ne lui donner que les accès dont il a besoin.
