@@ -359,10 +359,43 @@ Contenu de Nouveau.txt
 
 ![ACL héritée](../docs/img/image-25.png)
 
+### Complément : héritage sur un sous-dossier
+
+```bash
+essotom@srv-meridian-01:~$ sudo -u laura.mercier mkdir /srv/meridian/commercial/dossier-2026
+[sudo] Mot de passe de essotom :
+essotom@srv-meridian-01:~$ sudo getfacl /srv/meridian/commercial/dossier-2026
+getfacl : suppression du premier « / » des noms de chemins absolus
+# file: srv/meridian/commercial/dossier-2026
+# owner: laura.mercier
+# group: g_commercial
+# flags: -s-
+user::rwx
+group::rwx
+group:g_comptabilite:r-x
+mask::rwx
+other::---
+default:user::rwx
+default:group::rwx
+default:group:g_comptabilite:r-x
+default:mask::rwx
+default:other::---
+
+essotom@srv-meridian-01:~$ sudo -u nathalie.roux ls /srv/meridian/commercial/dossier-2026
+essotom@srv-meridian-01:~$ sudo -u nathalie.roux touch /srv/meridian/commercial/dossier-2026/test.txt
+touch: impossible de faire un touch '/srv/meridian/commercial/dossier-2026/test.txt': Permission non accordée
+```
+
+**Capture d'écran :**
+
+![Héritage des ACL sur un sous-dossier](../docs/img/image-43.png)
+
+Le sous-dossier créé par `laura.mercier` a reçu l'ACL d'accès et l'ACL par défaut du répertoire parent, ainsi que le bit setgid (`flags: -s-`). La comptable peut le lister et le traverser (`ls` ne renvoie pas d'erreur, le dossier est vide), mais elle ne peut pas y créer de fichier.
+
 **Verdict :** OK (EX-16 à EX-19).
 
 - EX-16 : la comptable lit un fichier du service commercial.
-- EX-17 : `nouveau.txt`, créé après la pose des ACL, porte automatiquement `group:g_comptabilite`.
+- EX-17 : `nouveau.txt`, créé après la pose des ACL, porte automatiquement `group:g_comptabilite`. Le complément ci-dessus montre la même chose pour un dossier.
 - EX-18 : la création est refusée. Le droit réel de la comptabilité sur le fichier est `r--` (`#effective`), elle ne peut donc pas le modifier. Elle n'a pas `w` sur le répertoire, elle ne peut donc pas supprimer de fichier.
 - EX-19 : le groupe propriétaire reste `g_commercial`.
 
@@ -762,7 +795,7 @@ essotom@srv-meridian-01:~$
 
 # 6.8 Persistance
 
-La VM a été redémarrée, puis les tests 6.2, 6.3 et 6.5 ont été rejoués. Les résultats sont identiques à ceux consignés plus haut. Les sorties de cette seconde exécution n'ont pas été conservées.
+La VM a été redémarrée plusieurs fois au cours du projet et les comportements testés sont restés identiques. Ce test n'a pas de sortie horodatée : aucune série de commandes n'a été consignée spécialement après un redémarrage.
 
 Les permissions, le setgid, le sticky bit et les ACL sont enregistrés dans le système de fichiers : ils ne dépendent d'aucun service à relancer au démarrage. Les comptes et les groupes sont dans `/etc/passwd`, `/etc/group` et `/etc/shadow`.
 

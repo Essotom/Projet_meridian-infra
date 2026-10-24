@@ -52,4 +52,4 @@ Les fichiers créés dans `comptabilite` et `commun` suivaient l'umask `022` : u
 
 ## Persistance
 
-Après redémarrage de la VM, les tests d'arborescence, de cloisonnement et d'accès de la comptabilité donnent les mêmes résultats. Les permissions, le setgid, le sticky bit et les ACL sont enregistrés dans le système de fichiers ; ils ne dépendent d'aucun service à relancer.
+La VM a été redémarrée plusieurs fois au cours du projet et les comportements testés sont restés identiques. Aucune série de commandes n'a été consignée spécialement après un redémarrage. Les permissions, le setgid, le sticky bit et les ACL sont enregistrés dans le système de fichiers ; ils ne dépendent d'aucun service à relancer.
