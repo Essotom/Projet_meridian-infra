@@ -153,7 +153,7 @@ ls -ld /srv/meridian/*
 stat -c '%A %U %G %n' /srv/meridian/*
 ```
 
-✅ Vérifie la présence du bit setgid dans la sortie de `ls -ld`, et du sticky bit sur `commun`.
+Vérifie la présence du bit setgid dans la sortie de `ls -ld`, et du sticky bit sur `commun`.
 
 ### 6.3 Cloisonnement - *ces tests doivent ÉCHOUER*
 
@@ -173,17 +173,17 @@ ls -l /srv/meridian/commercial/devis-2026.txt      # groupe = g_commercial
 sudo -u <commercial_2> sh -c 'echo "ligne ajoutée" >> /srv/meridian/commercial/devis-2026.txt'
 ```
 
-✅ La dernière commande doit réussir (EX-14). Si elle échoue, le problème n'est pas dans les permissions du répertoire.
+La dernière commande doit réussir (EX-14). Si elle échoue, le problème n'est pas dans les permissions du répertoire.
 
 ### 6.5 Accès de la comptabilité
 
 ```bash
 getfacl /srv/meridian/commercial
-sudo -u <comptable> cat /srv/meridian/commercial/devis-2026.txt        # ✅ réussit
-sudo -u <comptable> touch /srv/meridian/commercial/test.txt            # ❌ échoue
+sudo -u <comptable> cat /srv/meridian/commercial/devis-2026.txt        # réussit
+sudo -u <comptable> touch /srv/meridian/commercial/test.txt            # échoue
 sudo -u <commercial_1> touch /srv/meridian/commercial/nouveau.txt
 getfacl /srv/meridian/commercial/nouveau.txt                           # ACL héritée
-sudo -u <comptable> cat /srv/meridian/commercial/nouveau.txt           # ✅ réussit
+sudo -u <comptable> cat /srv/meridian/commercial/nouveau.txt           # réussit
 ```
 
 Le test d'héritage (EX-17) est le cœur du projet. Crée le fichier **après** avoir posé les ACL.
@@ -192,8 +192,8 @@ Le test d'héritage (EX-17) est le cœur du projet. Crée le fichier **après** 
 
 ```bash
 sudo -u <utilisateur_A> touch /srv/meridian/commun/note-A.txt
-sudo -u <utilisateur_B> rm /srv/meridian/commun/note-A.txt    # ❌ doit échouer
-sudo -u <utilisateur_A> rm /srv/meridian/commun/note-A.txt    # ✅ doit réussir
+sudo -u <utilisateur_B> rm /srv/meridian/commun/note-A.txt    # doit échouer
+sudo -u <utilisateur_A> rm /srv/meridian/commun/note-A.txt    # doit réussir
 ```
 
 ### 6.7 Départ d'un collaborateur
@@ -201,8 +201,8 @@ sudo -u <utilisateur_A> rm /srv/meridian/commun/note-A.txt    # ✅ doit réussi
 ```bash
 # Après application de ta procédure sur un compte de test :
 sudo chage -l <compte_desactive>
-ssh <compte_desactive>@192.168.56.10                  # ❌ doit échouer
-sudo -u <collegue> ls -l /srv/meridian/<service>/     # ✅ les fichiers sont toujours là
+ssh <compte_desactive>@192.168.56.10                  # doit échouer
+sudo -u <collegue> ls -l /srv/meridian/<service>/     # les fichiers sont toujours là
 ```
 
 ### 6.8 Persistance
