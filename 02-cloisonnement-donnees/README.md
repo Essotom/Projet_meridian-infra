@@ -310,12 +310,4 @@ par le service.
 
 ---
 
-## 12. Ce qui t'attend ensuite
-
-Tu viens de créer 13 comptes à la main. Au projet 03, MERIDIAN recrute et tu devras recommencer - sauf que tu auras appris à ne plus le faire à la main.
-
-**Une question à garder en tête pendant ce projet, sans la traiter** : `/srv` se trouve sur `lv_root`, qui fait 8 Go. Dans quelques mois, les services auront rempli leurs répertoires. Souviens-toi des 2 Go que tu as laissés libres dans `vg_system` au projet 01.
-
----
-
 *Cahier des charges - Parcours Linux Admin Système & Réseau - Projet 02/12*
